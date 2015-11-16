@@ -1,11 +1,11 @@
-if defined?(Merb::Plugins)  
-  
-  dependency "activerecord"
-  
+if defined?(Merb::Plugins)
+
+  require "active_record"
+
   require File.join(File.dirname(__FILE__) / "merb" / "orms" / "active_record" / "cleanup" )
   require File.join(File.dirname(__FILE__) / "merb" / "orms" / "active_record" / "connection")
   Merb::Plugins.add_rakefiles(File.join(File.dirname(__FILE__) / "active_record" / "merbtasks"))
-  
+
   class Merb::Orms::ActiveRecord::Connect < Merb::BootLoader
     after BeforeAppLoads
 
